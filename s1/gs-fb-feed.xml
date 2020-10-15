@@ -18,7 +18,7 @@
         <g:gender>unisex</g:gender>
         <g:age_group>adult</g:age_group>
         <g:color><![CDATA[{color, [substr 0 100]}]]></g:color>
-		    <g:size><![CDATA[{size, [substr 0 100]}]]></g:size>
+	<g:size><![CDATA[{size, [substr 0 100]}]]></g:size>
         <g:price>{price,[number_format 2]} DKK</g:price>
         <g:sale_price>{final_price} DKK</g:sale_price>
         <g:custom_label_4>{(return (number_format($price) > number_format($final_price)) ? 'SALE' : '';)}</g:custom_label_4>
