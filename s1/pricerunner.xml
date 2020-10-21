@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<products>
+  {each type="product"}
+  <product>
+    <Category><![CDATA[{category_path|parent}]]></Category>
+    <ProductName><![CDATA[{name}]]></ProductName>
+    <ProductSKU><![CDATA[{sku}]]></ProductSKU>
+    <ProductURL><![CDATA[{url|parent}]]></ProductURL>
+    <Description><description><![CDATA[{description|parent, [strip_tags],[substr 0 250]}]]></description></Description>
+    <GraphicURL><![CDATA[{image|parent}]]></GraphicURL>
+    <InStock>{is_in_stock}</InStock>
+    <StockLevel>{qty}</StockLevel>
+    <Price>{final_price} DKK</Price>
+    
+    <DeliveryTime>1-4 hverdage</DeliveryTime>
+    <ShippingCost>49 DKK</ShippingCost>
+    <EAN><![CDATA[{ean}]]></EAN>
+    <ManufacturerSKU><![CDATA[{sku}]]></ManufacturerSKU>
+    <ManufacturerName><![CDATA[{manufacturer}]]></ManufacturerName>
+   </product>
+  {/each}
+</products>
