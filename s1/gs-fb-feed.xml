@@ -6,8 +6,8 @@
     <description>Data feed description.</description>
     {each type="product"}
       <item>
-        <g:id><![CDATA[{id, [substr 0 50]}]]></g:id>
-        <g:item_group_id><![CDATA[{id|parent, [substr 0 50]}]]></g:item_group_id>
+        <g:id><![CDATA[{entity_id, [substr 0 50]}]]></g:id>
+        <g:item_group_id><![CDATA[{entity_id|parent, [substr 0 50]}]]></g:item_group_id>
         <title><![CDATA[{name, [substr 0 150]}]]></title>
         <link><![CDATA[{url|parent}]]></link>
         <description><![CDATA[{description,[strip_tags],[substr 0 500]}]]></description>
@@ -25,6 +25,7 @@
         <additional_image_link><![CDATA[{image2|parent}]]></additional_image_link>
         <additional_image_link><![CDATA[{image3|parent}]]></additional_image_link>
         <additional_image_link><![CDATA[{image4|parent}]]></additional_image_link>
+	      
         <g:shipping_label>GLS</g:shipping_label>
         <g:shipping>
           <g:country>DK</g:country>
