@@ -25,8 +25,7 @@
         <additional_image_link><![CDATA[{image2|parent}]]></additional_image_link>
         <additional_image_link><![CDATA[{image3|parent}]]></additional_image_link>
         <additional_image_link><![CDATA[{image4|parent}]]></additional_image_link>
-	      
-        <g:shipping_label>GLS</g:shipping_label>
+	
         <g:shipping>
           <g:country>DK</g:country>
           <g:region/>
