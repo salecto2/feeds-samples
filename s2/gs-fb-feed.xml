@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Data feed Title</title>
+    <link>{{ context.store.base_url }}</link>
+    <description>Data feed description.</description>
+    {% for product in context.products %}
+    <item>
+      <basic-description> Below data is for all system generated outputs</basic-description>
+      <g:id><![CDATA[{{ product.sku }}]]></g:id>
+      <g:item_group_id><![CDATA[{{ product.parent.sku }}]]></g:item_group_id>
+      <title><![CDATA[{{ product.name | truncate: '150' }}]]></title>
+      <link><![CDATA[{{ product.url }}]]></link>
+      <g:price>{{ product.price | price }} DKK</g:price>
+      <g:sale_price>{{ product.final_price | price }} DKK</g:sale_price>
+      <description><![CDATA[{{ product.description | stripHtml | plain | truncate: '5000' }}]]></description>
+      <g:product_type><![CDATA[{{ product.parent.category.path }}]]></g:product_type>
+      <g:image_link><![CDATA[{{ product.image }}]]></g:image_link>
+      {% for image in product.gallery %}<g:additional_image_link><![CDATA[{{ image }}]]></g:additional_image_link>{% endfor %}
+      <g:condition>new</g:condition>
+      <g:availability>{{ product.stock_status }}</g:availability>
+      {% if product.weight %}<g:shipping_weight>{{ product.weight }} kg</g:shipping_weight>{% endif %}
+      {% if product.cost %}<g:cost_of_goods_sold >{{ product.cost }} kg</g:cost_of_goods_sold >{% endif %}
+
+      <advanced-description> All below attributes output will show by creating and mapping custom attributes</advanced-description>
+      <g:color><![CDATA[{{ product.color-map }}]]></g:color>
+      <g:size><![CDATA[{{ product.size-map }}]]></g:size>
+      <g:brand><![CDATA[{{ product.brand-map }}]]></g:brand>
+      <g:mpn><![CDATA[{{ product.mpn-map }}]]></g:mpn>
+      <g:gtin><![CDATA[{{ product.gtin-map }}]]></g:gtin>
+      {% if product.identifier_exists-map %}<g:identifier_exists><g:gtin><![CDATA[{{ product.identifier_exists-map }}]]></g:gtin></g:identifier_exists>{% endif %}
+      {% if product.gender-map %}<g:gender>{{ product.gender-map }} kg</g:gender>{% endif %}
+      {% if product.age_group-map %}<g:age_group>{{ product.age_group-map }} kg</g:age_group>{% endif %}
+      {% if product.material-map %}<g:material >{{ product.material-map }} kg</g:material >{% endif %}
+      {% if product.custom_label_0-map %}<g:custom_label_0 >{{ product.custom_label_0-map }} kg</g:custom_label_0>{% endif %}
+
+      {% if product.variable:sale-variable %}<sale-description> Below custom label 4 will ouput "SALE" if product final_price is less then regular_price</sale-description>
+      <g:custom_label_4> <![CDATA[{{ product.variable:sale-variable }}]]>   </g:custom_label_4>{% endif %}
+
+      {% if product.mapping:1 %}<category-description> Below google categories will output categories if created and mapped correctly using the dynamic categories functionality </category-description>
+      <g:google_product_category><![CDATA[{{ product.mapping:1 }}]]></g:google_product_category>{% endif %}
+
+      <g:shipping>
+        <g:country>DK</g:country>
+        <g:service>GLS</g:service>
+        <g:price>{{ product.dynamic:shipping-price-map }} DKK</g:price>
+      </g:shipping>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
