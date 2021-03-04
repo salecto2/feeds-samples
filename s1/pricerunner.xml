@@ -17,6 +17,8 @@
     <EAN><![CDATA[{ean}]]></EAN>
     <ManufacturerSKU><![CDATA[{sku}]]></ManufacturerSKU>
     <ManufacturerName><![CDATA[{manufacturer}]]></ManufacturerName>
+    <g:size><![CDATA[{size}]]></g:size>
+    <g:color><![CDATA[{color}]]></g:color>
    </product>
   {/each}
 </products>
