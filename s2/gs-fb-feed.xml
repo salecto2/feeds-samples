@@ -34,10 +34,10 @@
       {% if product.material-map %}<g:material >{{ product.material-map }}</g:material >{% endif %}
       {% if product.custom_label_0-map %}<g:custom_label_0 >{{ product.custom_label_0-map }}</g:custom_label_0>{% endif %}
 
-      {% if product.variable:sale-variabel %}<custom_label_4>Custom label 4 will ouput "SALE" if product final_price is less then regular_price</custom_label_4>
+      {% if product.variable:sale-variabel %}Custom label 4 will ouput "SALE" if product final_price is less then regular_price.
       <g:custom_label_4> <![CDATA[{{ product.variable:sale-variable }}]]></g:custom_label_4>{% endif %}
 
-      {% if product.mapping:1 %}<google_product_category> Below google categories will output categories if created and mapped correctly using the dynamic categories functionality </google_product_category>
+      {% if product.mapping:1 %}Below google categories will output categories if created and mapped correctly using the dynamic categories functionality.
       <g:google_product_category><![CDATA[{{ product.mapping:1 }}]]></g:google_product_category>{% endif %}
 
       <g:shipping>
